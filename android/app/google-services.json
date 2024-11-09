@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "745797471292",
+    "project_id": "mynotes-flutter-edlavio",
+    "storage_bucket": "mynotes-flutter-edlavio.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745797471292:android:1af7fd933d33cbb6408739",
+        "android_client_info": {
+          "package_name": "me.edlavio.mynotes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDkhuxDMyj52gN1MWw8u1fgRp_N73Yzdc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
