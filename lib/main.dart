@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/views/homepage_view.dart';
 import 'package:mynotes/views/login_view.dart';
+import 'package:mynotes/views/notes_views.dart';
 import 'package:mynotes/views/register_view.dart';
 
 void main() {
@@ -11,8 +13,9 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => const HomePage(),
-      '/login': (context) => const LoginView(),
-      '/register': (context) => const RegisterView(),
+      loginRoute: (context) => const LoginView(),
+      registerRoute: (context) => const RegisterView(),
+      notesRoute: (context) => const NotesView(),
     },
   ));
 }

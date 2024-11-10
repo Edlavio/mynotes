@@ -1,5 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'dart:developer' as devtools show log;
+
+import 'package:mynotes/constants/routes.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -58,20 +61,20 @@ class _RegisterViewState extends State<RegisterView> {
                 final password = _password.text;
 
                 try {
-                  final userCredential = await FirebaseAuth.instance
-                      .createUserWithEmailAndPassword(
-                          email: email, password: password);
+                  await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                      email: email, password: password);
 
-                  print(userCredential);
+                  Navigator.of(context)
+                      .pushNamedAndRemoveUntil('/', (route) => false);
                 } on FirebaseAuthException catch (e) {
                   if (e.code == 'weak-password') {
-                    print('The password provided is too weak.');
+                    devtools.log('The password provided is too weak.');
                   } else if (e.code == 'email-already-in-use') {
-                    print('The account already exists for that email.');
+                    devtools.log('The account already exists for that email.');
                   } else if (e.code == 'invalid-email') {
-                    print('The email provided is invalid.');
+                    devtools.log('The email provided is invalid.');
                   } else {
-                    print(e.code);
+                    devtools.log(e.code);
                   }
                 }
               },
@@ -79,7 +82,7 @@ class _RegisterViewState extends State<RegisterView> {
           TextButton(
               onPressed: () {
                 Navigator.of(context)
-                    .pushNamedAndRemoveUntil('/login', (route) => false);
+                    .pushNamedAndRemoveUntil(loginRoute, (route) => false);
               },
               child: const Text('Do you have an account? Login')),
         ],

@@ -4,20 +4,20 @@ import 'package:mynotes/constants/menu_action.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/utilities/logout_dialog.dart';
 
-class VerifyEmailView extends StatefulWidget {
-  const VerifyEmailView({super.key});
+class NotesView extends StatefulWidget {
+  const NotesView({super.key});
 
   @override
-  State<VerifyEmailView> createState() => _VerifyEmailViewState();
+  State<NotesView> createState() => _NotesViewState();
 }
 
-class _VerifyEmailViewState extends State<VerifyEmailView> {
+class _NotesViewState extends State<NotesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Verify Email',
+          'Notes',
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.blue,
@@ -45,19 +45,8 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
           )
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Please verify your email'),
-            TextButton(
-                onPressed: () async {
-                  final user = FirebaseAuth.instance.currentUser;
-                  user!.sendEmailVerification();
-                },
-                child: const Text('Send verification email'))
-          ],
-        ),
+      body: const Center(
+        child: Text('Welcome to MyNotes'),
       ),
     );
   }

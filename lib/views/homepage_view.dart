@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mynotes/firebase_options.dart';
 import 'package:mynotes/views/login_view.dart';
+import 'package:mynotes/views/notes_views.dart';
 import 'package:mynotes/views/verify_email_view.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,14 +26,13 @@ class _HomePageState extends State<HomePage> {
             final user = FirebaseAuth.instance.currentUser;
             if (user != null) {
               if (user.emailVerified) {
-                print('User is logged in');
+                return const NotesView();
               } else {
                 return const VerifyEmailView();
               }
             } else {
               return const LoginView();
             }
-            return const Text('Welcome to MyNotes');
           default:
             return const CircularProgressIndicator();
         }
